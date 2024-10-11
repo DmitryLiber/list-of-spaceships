@@ -1,0 +1,193 @@
+/* BASE STYLES
+---------------------------- */
+@layer default {
+  :root {
+    @if $colors {
+      @each $key, $value in $colors {
+        --color-#{$key}: #{$value};
+        --color-#{$key}--rgb: #{hextorgb($value)};
+      }
+    }
+
+    --font-primary: #{$font-primary};
+
+    /* GAP SYSTEM
+  ------------------------- */
+    --gap-xxxs: 5px;
+    --gap-xxs: 10px;
+    --gap-xs: 15px;
+    --gap-s: 18px;
+
+    --gap-xxxxm: 20px;
+    --gap-xxxm: 22px;
+    --gap-xxm: 25px;
+    --gap-xm: 26px;
+    --gap-m: 30px;
+
+    --gap-l: 50px;
+    --gap-xl: 60px;
+
+    /* RADIUS SYSTEM
+  ------------------------- */
+    --radius-xxs: 6px;
+    --radius-xs: 8px;
+    --radius-s: 10px;
+    --radius-xxxl: 100%;
+
+    /** Z-INDEX SYSTEM
+  ------------------------- */
+    --index-1: 100; // Куки, чаты, фиксированные баннеры, кнопка вверх
+    --index-2: 200; // Шапка
+    --index-3: 300; // Модалки
+    --index-4: 400; // Система уведомлений
+
+    --header-height: 115px;
+  }
+
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-weight: 400;
+    font-size: 16px;
+    color: cl(text);
+    overflow-y: scroll;
+    font-family: var(--font-primary), 'Arial', sans-serif;
+    margin: var(--gap-l) 0;
+  }
+
+  body,
+  button,
+  input {
+    font-family: var(--font-primary), 'Arial', sans-serif;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: cl(surface-alt) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @include mq($l) {
+      background: transparent;
+    }
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @include mq($l) {
+      background-color: cl(surface-alt);
+      border-radius: 10px;
+    }
+  }
+
+  ::selection {
+    color: cl(bg);
+    text-shadow: none;
+    background: cl(primary);
+  }
+
+  .pb-xxs {
+    padding-bottom: var(--gap-xxs);
+  }
+
+  .pb-xs {
+    padding-bottom: var(--gap-xs);
+  }
+
+  .pb-s {
+    padding-bottom: var(--gap-s);
+  }
+
+  .pb-m {
+    padding-bottom: var(--gap-m);
+  }
+
+  .pb-l {
+    padding-bottom: var(--gap-l);
+  }
+
+  .pb-xl {
+    padding-bottom: var(--gap-xl);
+  }
+
+  .mb-xxs {
+    margin-bottom: var(--gap-xxs);
+  }
+
+  .mb-xs {
+    margin-bottom: var(--gap-xs);
+  }
+
+  .mb-s {
+    margin-bottom: var(--gap-s);
+  }
+
+  .mb-m {
+    margin-bottom: var(--gap-m);
+  }
+
+  .mb-l {
+    margin-bottom: var(--gap-l);
+  }
+
+  .mb-xl {
+    margin-bottom: var(--gap-xl);
+  }
+}
+
+@layer reset {
+  a {
+    color: cl(text);
+    text-decoration: none;
+  }
+
+  h1,
+  h2,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+
+  b,
+  strong {
+    font-weight: 500;
+  }
+
+  main {
+    height: 100%;
+  }
+
+  button {
+    font-size: 16px;
+    background-color: transparent;
+    font-weight: inherit;
+    border: 0;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+  }
+
+  textarea {
+    width: 100%;
+  }
+
+  input {
+    &[type='text'] {
+      width: 100%;
+    }
+  }
+}

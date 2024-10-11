@@ -1,0 +1,4 @@
+const BACKEND_BASE_URL = 'https://swapi.dev'
+const PER_PAGE_SPACESHIPS = 10
+
+export { BACKEND_BASE_URL, PER_PAGE_SPACESHIPS }
